@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  user: badtomato
+  password:
+  host: localhost
+  port: 5432
+
+## Development and test will pull the info from default to make use of your local postgres server
+development:
+  <<: *default
+  database: todo_backend_development
+
+test:
+  <<: *default
+  database: todo_backend_test
+
+## If you plan on deploying to Heroku, the setup below will make sure when you deploy to heroku it will be pointing to your heroku database.
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
