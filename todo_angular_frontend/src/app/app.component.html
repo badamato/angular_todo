@@ -2,26 +2,24 @@
 <hr />
 <h2>Create a Todo</h2>
 <form (submit)="createTodo()">
-<input type="text" [(ngModel)]="createTitle" name="title" #ctrl="ngModel" />
-<input type="text" [(ngModel)]="createBody" name="body" #ctrl="ngModel" />
-<input type="submit" value="Create Todo" />
+  <input type="text" [(ngModel)]="createTitle" name="title" #ctrl="ngModel" />
+  <input type="text" [(ngModel)]="createBody" name="body" #ctrl="ngModel" />
+  <input type="submit" value="create Todo" />
 </form>
-
 <hr />
 <h2>Edit a Todo</h2>
 <form (submit)="updateTodo()">
-<input type="text" [(ngModel)]="editTitle" name="title" #ctrl="ngModel" />
-<input type="text" [(ngModel)]="editBody" name="body" #ctrl="ngModel" />
-<input type="submit" value="Edit Todo" />
+  <input type="text" [(ngModel)]="editTitle" name="title" #ctrl="ngModel" />
+  <input type="text" [(ngModel)]="editBody" name="body" #ctrl="ngModel" />
+  <input type="submit" value="Edit Todo" />
 </form>
-
 <hr />
 <h2>The Todos</h2>
 <ul>
-    <li *ngFor="let todo of todos">
-        <h3>{{todo.title}}</h3>
-        <h4>{{todo.body}}</h4>
-        <button (click)="editSelect(todo)">Edit</button>
-        <button (click)="deleteTodo(todo)">Delete</button>
-    </li>
+  <li *ngFor="let todo of todos">
+    <h3>{{ todo.title }}</h3>
+    <h4>{{ todo.body }}</h4>
+    <button (click)="editSelect(todo)">Edit</button>
+    <button (click)="deleteTodo(todo)">Delete</button>
+  </li>
 </ul>
